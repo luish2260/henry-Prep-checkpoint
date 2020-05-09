@@ -96,33 +96,46 @@ function crearClasePersona() {
 
   class Persona {
     constructor(nombre, edad, hobbies, amigos) {
-      
+     this.nombre = nombre;
+     this.edad = edad;
+     this.hobbies = hobbies;
+     this.amigos = amigos;
     }
 
     addFriend(nombre, edad) {
       // el metodo addFriend recibe un string nombre y un entero edad y debe agregar un objeto:
       // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
       // no debe retornar nada.
+      this.amigos.push({edad,nombre});
+    
+      
       
     }
 
     addHobby(hobby) {
       // este método debe agregar un hobby (hobby) al arreglo de hobbies de la persona.
       // no debe retornar nada.
-      
+      this.hobbies.push(hobby);
     }
     getFriends() {
       // Escribe una función que retorne un arreglo con sólo los nombres del arreglo de amigos
       // de la persona.
       // Ej:
       // persona.getFriends() // retorna ['toni', 'Leo', 'Manu']
-      
+      var amigos = [];
+      for (var i=0;i<this.amigos.length;i++)
+      amigos[i] = this.amigos[i].nombre;
+      return amigos;
     }
 
     getHobbies() {
       // Escribe una función que retorne un arreglo con los hobbies de la persona
       // Ej:
       // persona.getHobbies() // retorna ['correr', 'dormir', 'nadar']
+      var h = [];
+      for (var i=0;i<this.hobbies.length;i++)
+      h[i] = this.hobbies[i];
+      return h;
       
     }
 
@@ -139,6 +152,12 @@ function crearClasePersona() {
       //   }]
       // }
       // persona.getPromedioEdad() // retorna 29
+      var suma = 0;
+      for(var i=0;i<this.amigos.length;i++){
+        suma = suma + this.amigos[i].edad;
+      }
+      return suma / this.amigos.length;
+
     }
   };
 
