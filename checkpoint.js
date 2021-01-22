@@ -8,17 +8,16 @@ function menorMayor(numeros) {
   var menor = numeros[0];
   var mayor = numeros[0];
   var h = [];
-  for (var i=1;i<numeros.length;i++)
-  {
-    if (numeros[i]<menor)
-    menor = numeros[i];
-    if(numeros[i]>mayor)
-    mayor = numeros [i];
-  }
-  h[0]= menor;
-  h[1]= mayor;
+  for (var i = 1; i < numeros.length; i++) {
+    if (numeros[i] < menor)
+      menor = numeros[i];
+    if (numeros[i] > mayor)
+      mayor = numeros[i];
+  };
+  h[0] = menor;
+  h[1] = mayor;
   return h;
-}
+};
 
 function stringMasLarga(strings) {
   // Escribe una función llamada stringMasLarga, que tome un arreglo de strings llamado 'strings'
@@ -27,27 +26,25 @@ function stringMasLarga(strings) {
   // stringMasLarga(['hi', 'hello', 'ni hao', 'guten tag']); // returns 'guten tag'
   // stringMasLarga(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
   var largo = strings[0];
-  for(var i=1;i<strings.length;i++)
-  {
-    if((strings[i].length)>(largo.length))
-    largo = strings[i];
-  }
+  for (var i = 1; i < strings.length; i++) {
+    if ((strings[i].length) > (largo.length))
+      largo = strings[i];
+  };
   return largo;
-}
+};
 
 function buscarAmigo(amigos, nombre) {
-  // Escribe una funcion que reciba un array de amigos (objetos) y un nombre (string).
+  // Escribe una obj que reciba un array de amigos (objetos) y un nombre (string).
   // Tu función debe devolver el amigo que coincida con el nombre recibido por argumento.
   // Cada amigo tiene las propiedades nombre y edad.
   // Ej:
   //  var amigos = [{ nombre: 'toni', edad: 33 } , { nombre: 'Emi', edad: 25 }];
   //  buscarAmigo(amigos, 'toni') // retorna { nombre: 'toni', edad: 33 };
-  for(var i=0;i<amigos.length;i++)
-  {
-    if(amigos[i].nombre === nombre)
-    return amigos[i];
-  }
-}
+  for (var i = 0; i < amigos.length; i++) {
+    if (amigos[i].nombre === nombre)
+      return amigos[i];
+  };
+};
 
 function sumArray(array, n) {
   // Escribir un algoritmo que, dada un arreglo de números ordenados y un número n, 
@@ -57,17 +54,16 @@ function sumArray(array, n) {
   // sumArray([2,5,7,10,11,15,20], 13)  // retorna true     2+11 suman 13
   // sumArray([2,5,7,10,11,15,20], 14)  // retorna false
   // pista: podes usar bucles anidados;
-  for(var i=0;i<array.length;i++){
-    for (var j=i+1;j<array.length;j++)
-    {
-      if((array[i]+array[j])===n)
-      return true;
+  for (var i = 0; i < array.length; i++) {
+    for (var j = i + 1; j < array.length; j++) {
+      if ((array[i] + array[j]) === n)
+        return true;
     }
   }
   return false;
 };
 
-function pluck(array, propiedad) { 
+function pluck(array, propiedad) {
   // Escribi una función llamada pluck,
   // que recibe un array de objetos (array) y el nombre de una propiedad (propiedad).
   // La función va a devolver un nuevo arreglo con solo los
@@ -80,8 +76,8 @@ function pluck(array, propiedad) {
   });
   return nuevoArray;*/
   var nuevoArray = [];
-  for(var i=0;i<array.length;i++)
-  nuevoArray[i]=array[i][propiedad];
+  for (var i = 0; i < array.length; i++)
+    nuevoArray[i] = array[i][propiedad];
   return nuevoArray;
 }
 
@@ -92,24 +88,21 @@ function crearClasePersona() {
   // Crear una clase para construir objeto de tipo Persona.
   // el constructor debe recibir:
   // nombre (string) , edad (integer) , hobbies (array de strings) , amigos (array de objetos)
-  // Esta funcion debe retonar la clase Persona.
+  // Esta obj debe retonar la clase Persona.
 
   class Persona {
     constructor(nombre, edad, hobbies, amigos) {
-     this.nombre = nombre;
-     this.edad = edad;
-     this.hobbies = hobbies;
-     this.amigos = amigos;
+      this.nombre = nombre;
+      this.edad = edad;
+      this.hobbies = hobbies;
+      this.amigos = amigos;
     }
 
     addFriend(nombre, edad) {
       // el metodo addFriend recibe un string nombre y un entero edad y debe agregar un objeto:
       // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
       // no debe retornar nada.
-      this.amigos.push({edad,nombre});
-    
-      
-      
+      this.amigos.push({ edad, nombre });
     }
 
     addHobby(hobby) {
@@ -123,8 +116,8 @@ function crearClasePersona() {
       // Ej:
       // persona.getFriends() // retorna ['toni', 'Leo', 'Manu']
       var amigos = [];
-      for (var i=0;i<this.amigos.length;i++)
-      amigos[i] = this.amigos[i].nombre;
+      for (var i = 0; i < this.amigos.length; i++)
+        amigos[i] = this.amigos[i].nombre;
       return amigos;
     }
 
@@ -133,10 +126,10 @@ function crearClasePersona() {
       // Ej:
       // persona.getHobbies() // retorna ['correr', 'dormir', 'nadar']
       var h = [];
-      for (var i=0;i<this.hobbies.length;i++)
-      h[i] = this.hobbies[i];
+      for (var i = 0; i < this.hobbies.length; i++)
+        h[i] = this.hobbies[i];
       return h;
-      
+
     }
 
     getPromedioEdad() {
@@ -153,7 +146,7 @@ function crearClasePersona() {
       // }
       // persona.getPromedioEdad() // retorna 29
       var suma = 0;
-      for(var i=0;i<this.amigos.length;i++){
+      for (var i = 0; i < this.amigos.length; i++) {
         suma = suma + this.amigos[i].edad;
       }
       return suma / this.amigos.length;
@@ -169,10 +162,10 @@ function crearClasePersona() {
 // Este ejercicio no cuenta en el puntaje del checkpoint
 // pero si llegas hasta aca y lo haces quiere decir que venis super bien!
 
-function filtrar(funcion) {
+function filtrar(obj) {
   // Escribi una función filtrar en el prototipo de Arrays,
-  // que recibe una funcion (callback) que devuelve true o false.
-  // filtrar los elementos de ese arreglo en base al resultado de esa funcion
+  // que recibe una obj (callback) que devuelve true o false.
+  // filtrar los elementos de ese arreglo en base al resultado de esa obj
   // comparadora, devolver un nuevo arreglo con los elementos filtrados.
   // NO USAR LA FUNCION FILTER DE LOS ARREGLOS.
   // ej:
@@ -189,20 +182,15 @@ function filtrar(funcion) {
   // productos.filtrar(function(p) {
   //   return p.price >= 50;
   // }) => [{price: 100, name:'tv'}]
-  Array.prototype.filtrar = function(funcion) {
-  var nuevoArray = [];
-  for(var i = 0; i < this.length; i++) {
-  if(funcion(this[i])) {
-  nuevoArray.push(this[i]);
+  Array.prototype.filtrar = function (obj) {
+    var nuevoArray = [];
+    for (var i = 0; i < this.length; i++) {
+      if (obj(this[i])) {
+        nuevoArray.push(this[i]);
+      }
+    }
+    return nuevoArray;
   }
-  } 
-  return nuevoArray;
-  }
-
-
-
-
-
 
 };
 
@@ -216,4 +204,4 @@ module.exports = {
   pluck,
   crearClasePersona,
   filtrar
-}
+};
