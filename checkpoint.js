@@ -5,10 +5,10 @@ function menorMayor(numeros) {
   // Escribi una función llamada menorMayor que tome como entrada un arreglo de números y devuelva un arreglo 
   // que contenga el menor número del arreglo en la posición cero y el mayor número del arreglo en la posición 1.
   // Ej: menorMayor([4, 6, 1, 7, 15]) // retorna [1, 15]
-  var menor = numeros[0];
-  var mayor = numeros[0];
-  var h = [];
-  for (var i = 1; i < numeros.length; i++) {
+  let menor = numeros[0];
+  let mayor = numeros[0];
+  let h = [];
+  for (let i = 1; i < numeros.length; i++) {
     if (numeros[i] < menor)
       menor = numeros[i];
     if (numeros[i] > mayor)
@@ -25,8 +25,8 @@ function stringMasLarga(strings) {
   // Ej:
   // stringMasLarga(['hi', 'hello', 'ni hao', 'guten tag']); // returns 'guten tag'
   // stringMasLarga(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
-  var largo = strings[0];
-  for (var i = 1; i < strings.length; i++) {
+  let largo = strings[0];
+  for (let i = 1; i < strings.length; i++) {
     if ((strings[i].length) > (largo.length))
       largo = strings[i];
   };
@@ -38,9 +38,9 @@ function buscarAmigo(amigos, nombre) {
   // Tu función debe devolver el amigo que coincida con el nombre recibido por argumento.
   // Cada amigo tiene las propiedades nombre y edad.
   // Ej:
-  //  var amigos = [{ nombre: 'toni', edad: 33 } , { nombre: 'Emi', edad: 25 }];
+  //  let amigos = [{ nombre: 'toni', edad: 33 } , { nombre: 'Emi', edad: 25 }];
   //  buscarAmigo(amigos, 'toni') // retorna { nombre: 'toni', edad: 33 };
-  for (var i = 0; i < amigos.length; i++) {
+  for (let i = 0; i < amigos.length; i++) {
     if (amigos[i].nombre === nombre)
       return amigos[i];
   };
@@ -54,8 +54,8 @@ function sumArray(array, n) {
   // sumArray([2,5,7,10,11,15,20], 13)  // retorna true     2+11 suman 13
   // sumArray([2,5,7,10,11,15,20], 14)  // retorna false
   // pista: podes usar bucles anidados;
-  for (var i = 0; i < array.length; i++) {
-    for (var j = i + 1; j < array.length; j++) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
       if ((array[i] + array[j]) === n)
         return true;
     }
@@ -68,15 +68,15 @@ function pluck(array, propiedad) {
   // que recibe un array de objetos (array) y el nombre de una propiedad (propiedad).
   // La función va a devolver un nuevo arreglo con solo los
   // valores dentro de la propiedad recibida, por ejemplo:
-  // var productos = [{ name: 'TV LCD', price: 100}, { name: 'Computadora', price: 500 }]
+  // let productos = [{ name: 'TV LCD', price: 100}, { name: 'Computadora', price: 500 }]
   // productos.pluck(productos, 'name') // ['TV LCD', 'Computadora']
   // pista: es una buena oportunidad para usar map.
-  /*var nuevoArray = array.map(function(current){
+  /*let nuevoArray = array.map(function(current){
   return  propiedad;
   });
   return nuevoArray;*/
-  var nuevoArray = [];
-  for (var i = 0; i < array.length; i++)
+  let nuevoArray = [];
+  for (let i = 0; i < array.length; i++)
     nuevoArray[i] = array[i][propiedad];
   return nuevoArray;
 }
@@ -89,7 +89,6 @@ function crearClasePersona() {
   // el constructor debe recibir:
   // nombre (string) , edad (integer) , hobbies (array de strings) , amigos (array de objetos)
   // Esta obj debe retonar la clase Persona.
-
   class Persona {
     constructor(nombre, edad, hobbies, amigos) {
       this.nombre = nombre;
@@ -97,14 +96,12 @@ function crearClasePersona() {
       this.hobbies = hobbies;
       this.amigos = amigos;
     }
-
     addFriend(nombre, edad) {
       // el metodo addFriend recibe un string nombre y un entero edad y debe agregar un objeto:
       // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
       // no debe retornar nada.
       this.amigos.push({ edad, nombre });
     }
-
     addHobby(hobby) {
       // este método debe agregar un hobby (hobby) al arreglo de hobbies de la persona.
       // no debe retornar nada.
@@ -115,23 +112,20 @@ function crearClasePersona() {
       // de la persona.
       // Ej:
       // persona.getFriends() // retorna ['toni', 'Leo', 'Manu']
-      var amigos = [];
-      for (var i = 0; i < this.amigos.length; i++)
+      let amigos = [];
+      for (let i = 0; i < this.amigos.length; i++)
         amigos[i] = this.amigos[i].nombre;
       return amigos;
     }
-
     getHobbies() {
       // Escribe una función que retorne un arreglo con los hobbies de la persona
       // Ej:
       // persona.getHobbies() // retorna ['correr', 'dormir', 'nadar']
-      var h = [];
-      for (var i = 0; i < this.hobbies.length; i++)
+      let h = [];
+      for (let i = 0; i < this.hobbies.length; i++)
         h[i] = this.hobbies[i];
       return h;
-
     }
-
     getPromedioEdad() {
       // Escribe una función que retorne el promedio de edad de los amigos de una persona
       // ej, si la persona tuviera estos amigos:
@@ -145,23 +139,18 @@ function crearClasePersona() {
       //   }]
       // }
       // persona.getPromedioEdad() // retorna 29
-      var suma = 0;
-      for (var i = 0; i < this.amigos.length; i++) {
+      let suma = 0;
+      for (let i = 0; i < this.amigos.length; i++) {
         suma = suma + this.amigos[i].edad;
       }
       return suma / this.amigos.length;
-
     }
   };
-
   return Persona;
 }
-
-
 /* ====================== EXTRA CREDIT ===================== */
 // Este ejercicio no cuenta en el puntaje del checkpoint
 // pero si llegas hasta aca y lo haces quiere decir que venis super bien!
-
 function filtrar(obj) {
   // Escribi una función filtrar en el prototipo de Arrays,
   // que recibe una obj (callback) que devuelve true o false.
@@ -169,7 +158,7 @@ function filtrar(obj) {
   // comparadora, devolver un nuevo arreglo con los elementos filtrados.
   // NO USAR LA FUNCION FILTER DE LOS ARREGLOS.
   // ej:
-  // var productos = [{
+  // let productos = [{
   //   price: 100,
   //   name: 'tv'
   // }, {
@@ -183,17 +172,15 @@ function filtrar(obj) {
   //   return p.price >= 50;
   // }) => [{price: 100, name:'tv'}]
   Array.prototype.filtrar = function (obj) {
-    var nuevoArray = [];
-    for (var i = 0; i < this.length; i++) {
+    let nuevoArray = [];
+    for (let i = 0; i < this.length; i++) {
       if (obj(this[i])) {
         nuevoArray.push(this[i]);
       }
     }
     return nuevoArray;
   }
-
 };
-
 // No modifiques nada debajo de esta linea
 // 
 module.exports = {
